@@ -1,0 +1,26 @@
+{
+  "name": "Compact Messenger Theme",
+  "description": "A theme to remove useless margins, paddings and rounded corners",
+  "version": "0.1",
+  "manifest_version": 3,
+  "author" : "LyzzCL",
+  "icons" : {
+    "128": "messenger.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.messenger.com/t/*",
+        "https://*.messenger.com/active/*",
+        "https://*.messenger.com/marketplace/*",
+        "https://*.messenger.com/archived/*",
+        "https://*.messenger.com/c/*",
+        "https://*.messenger.com/e2ee/*"
+      ],
+      "runAt" : "document_start",
+      "js": [
+        "app.js"
+      ]
+    }
+  ]
+}
