@@ -1,94 +1,172 @@
+/*
+  CSS Theme for Messenger by LyzzCL
+  Plan to edit this or make your own theme?
+  I recommend using these extensions for VSCode:
+    Better Comments: https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
+    es6-string-html: https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html
+*/
+
+// Function to hide left sidebar with CTRL + Q
+window.addEventListener('keydown', function (event) {
+  if (event.ctrlKey && event.code === 'KeyQ') {
+      const element = document.querySelector("html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)");
+
+      element.style.display = (element.style.display !== "none") ? "none" : "block";
+  }
+});
+
 // Add styles to site
 const addCustomStyle = (css) => (document.head.appendChild(document.createElement("style")).innerHTML = css);
 
 // General UI changes
-addCustomStyle(`
+addCustomStyle(/*css*/ `
   /* Hiddes main scrollbar */
   ._9dls {
     overflow-y: hidden !important;
   }
 
-  /* Remove margins and paddings */
-  html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Remove Chatlist margin and rounded corners */
-  html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) {
-    margin: 0;
-    border-radius: 0;
-  }
-
-  /* Remove Chatbox margin and rounded corners */
-  html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div > div > div > div > div > div > div {
-    margin: 0;
-    border-radius: 0;
-  }
-
-  /* Remove Chatbox shadow */
-  html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div > div > div > div > div > div > div {
-    box-shadow: none;
-  }
-
-  /* General max height of all containers */
+  /* Max height of all containers */
   .x1bc3s5a {
     max-height: 100vh;
   }
 
-  /* Remove communites list */
-  /* TODO: Add this as an option */
-  html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) {
-  display: none;
-  }
+  /* //* Main Container */
+  html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) {
+    margin: 0;
+    padding: 0;
 
-  /* Add paddings to left sidebar */
-  div.x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1nhvcw1.x1qjc9v5.xozqiw3.x1q0g3np.xexx8yu.x1dr59a3.x13dmulc.x1bc3s5a.x1hys8i7.x1mj4gcd > div.x9f619.x1n2onr6.x1ja2u2z.x78zum5.xdt5ytf.x2lah0s.x193iq5w.xeuugli {
-    padding-block: 8px;
-    padding-inline: 6px;
+    /* Remove Chatlist margin and rounded corners */
+    > div:nth-of-type(2) {
+      margin: 0;
+      border-radius: 0;
+    }
+
+    /* Remove Chatbox margin, rounded corners and shadow */
+    > div:nth-of-type(3) > div > div > div > div > div > div > div {
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    /* //TODO: Add this as an option */
+    /* Remove communites list */
+    > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) {
+      display: none;
+    }
+      
+    /* Add paddings and margins to left sidebar */
+    > div:nth-of-type(1) {
+      padding-block: 8px;
+      padding-inline: 6px;
+
+      > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(1) > div > span {
+        margin-bottom: 6px;
+      }
+    }
   }
 `);
 
 //Chatlist changes
-addCustomStyle(`
-  /* Remove Chats title */
-  div.x78zum5.xdt5ytf.xzd29fr{
-    display: none;
-  }
-
-  /* Reduce Search bar borders */
-  div.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1a2a7pz.x1qjc9v5.xnwf7zb.x40j3uw.x1s7lred.x15gyhx8.x9f619.x78zum5.xu0aao5.x1fns5xo.x1n2onr6.xh8yej3.xmjcpbm {
-    border-radius: 4px;
-  }
-
-  /* Fix search bar padding */
-  div.x9f619.x1n2onr6.x1ja2u2z.xsag5q8.xexx8yu{
-    padding-top: 12px;
-  }
-
+addCustomStyle(/*css*/ `
   /* Users images borders */
   .xww2gxu, .xudhj91, .x18nykt9, .x14yjl9h {
     border-radius: 4px;
   }
 
-  /* Padding and margins of users */
-  div[class*="x78zum5"][class*="xdt5ytf"][class*="x1iyjqo2"][class*="x6ikm8r"][class*="x10wlt62"] > div > div > div > div > div > div:nth-of-type(1) > a >div {
-    padding: 6px;
+  /* //* Chatlist Container */
+  html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div {
+
+    /* Remove chats title */
+    > div:nth-of-type(1) {
+      display: none;
+    }
+
+    /* Remove the download for windows button */
+    > div:nth-last-child(1) {
+      display: none;
+    }
+
+    /* Reduce Search bar borders */
+    > div:nth-of-type(2) > div > div > div > div > div > div {
+      border-radius: 4px;
+    }
+    
+    /* Fix search bar padding */
+    > div:nth-of-type(2) {
+      padding-top: 12px;
+    }
+
+    /* Padding and margins of users */
+    > div:nth-last-child(2) > div > div > div > div > div > div:nth-of-type(2) > div > div > div > div > div > div > a {
+      border-radius: 4px;
+      margin-bottom: 6px;
+  
+      > div {
+        padding-block: 6px;
+        padding-inline: 8px;
+      }
+    }
   }
 
-  div[class*="x78zum5"][class*="xdt5ytf"][class*="x1iyjqo2"][class*="x6ikm8r"][class*="x10wlt62"] > div > div > div > div > div > div:nth-of-type(1) > a {
-    border-radius: 4px;
-    margin-bottom: 6px;
-  }
+  /* //! Add experimental here */
 
-  /* Remove the download for windows button */
-  div.x9f619.x1n2onr6.x1ja2u2z.x78zum5.x1r8uery.xs83m0k.xeuugli.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.xknmibj.x1c4vz4f.xt55aet.xexx8yu.xc73u3c.x18d9i69.x5ib6vp.x1lku1pv.xzd29fr {
-    display: none;
-  }
+  
 `);
 
+
+
+// /* //! Experimental, compact chatlist [START] */
+// html > body > div:nth-of-type(1) > div > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) {
+//   width: auto;
+
+//   /* Removes search bar */
+//   > div > div:nth-of-type(2) {
+//     display: none;
+//   }
+
+//   > div > div:nth-last-child(2) > div > div > div > div > div > div:nth-of-type(2) > div {
+    
+//     /* Adds margin top to first element */
+//     > div:nth-of-type(1) {
+//       margin-top: 8px;
+//     }
+
+//     /* Shrink each element of the list [START] */
+//     > div {
+//       width: fit-content;
+//     }
+
+//     > div > div > div > div > div:nth-of-type(1) > a > div > div > div {
+//       > div:nth-of-type(1) > div {
+//         padding: 0;
+//       }
+
+//       > div:nth-of-type(n+2) {
+//         display: none;
+//       }
+//     }
+//     /* Shrink each element of the list [END] */
+
+//     /* Moves the user management menu*/
+//     > div > div > div > div > div:nth-of-type(2) > div > div > div > div {
+//       width: 24px;
+//       height: 24px;
+//       border-radius: 4px;
+//       position: absolute;
+//       bottom: 0;
+//     }
+
+//     > div:nth-last-child(-n+2) {
+//       display: none;
+//     }
+//   }
+// }
+// /* //! Experimental, compact chatlist [END] */
+
+
+
 // Chatbox changes
-addCustomStyle(`
+addCustomStyle(/*css*/`
   /* Remove fillers on chat title */
   div.html-div.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1cy8zhl.x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xj9xw9b > div:nth-of-type(n+2) {
     display: none;
